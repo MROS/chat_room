@@ -1,0 +1,19 @@
+run
+  def prhello() {
+    println("Hello");
+  }
+run
+compile
+run
+~compilw
+~ compile
+run
+~ compile
+run
+"run absd jpsojf"
+run absd jpsojf
+~ compile
+run
+~ compile
+run
+~ compile
