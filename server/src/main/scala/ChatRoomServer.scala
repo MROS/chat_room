@@ -48,7 +48,7 @@ class HandleRequest(request: ProtocolData, socket: Socket
     connection.close()
     ans
   }
-  def certificate(method: String, filename: String): (Boolean, Socket) = {
+  def certificate(method: String, filename: String): (Boolean, Socket, BufferedReader) = {
     val out = new PrintWriter(socket.getOutputStream)
 
     val fileSocket: ServerSocket = new ServerSocket(0)
@@ -63,7 +63,7 @@ class HandleRequest(request: ProtocolData, socket: Socket
 
     val in = new BufferedReader(new InputStreamReader(FileSocket.getInputStream))
     val returnPassword = in.readLine()
-    if (password == returnPassword) (true, FileSocket) else (false, null)
+    if (password == returnPassword) (true, FileSocket, in) else (false, null, null)
   }
   def run(): Unit = {
     request match {
@@ -82,11 +82,10 @@ class HandleRequest(request: ProtocolData, socket: Socket
       }
       case UploadFile(filename) => {
         println(username + " want to upload " + filename)
-        val (ok, readFileSocket) = certificate("upload", filename)
+        val (ok, readFileSocket, in) = certificate("upload", filename)
         if (ok) {
           println("password correct!!")
 
-          val in = new BufferedReader(new InputStreamReader(readFileSocket.getInputStream))
           val filePath = DefaultSetting.dataPath + File.separator + filename
           val fileWriter = new PrintWriter(filePath, "UTF-8");
 
@@ -129,7 +128,7 @@ class HandleRequest(request: ProtocolData, socket: Socket
           // report to client
         }
         else {
-          val (ok, writeFileSocket) = certificate("download", filename)
+          val (ok, writeFileSocket, _) = certificate("download", filename)
           if (ok){
             println("download password correct")
             val out = new PrintWriter(writeFileSocket.getOutputStream)
