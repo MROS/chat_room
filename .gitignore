@@ -1,0 +1,12 @@
+# sbt
+target/
+
+# server file
+data
+
+# editor
+*.swp
+*.swo
+
+# ide
+.idea/
