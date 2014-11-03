@@ -124,9 +124,9 @@ end
 class Client
   def get_login_request
     print "使用者名稱："
-    @username = gets.chomp
+    @username = $stdin.gets.chomp
     print "密碼："
-    @password = gets.chomp
+    @password = $stdin.gets.chomp
     req = JSON.generate({function: "login", data: {username: @username, password: @password}})
   end
 
