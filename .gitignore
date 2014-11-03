@@ -2,7 +2,7 @@
 target/
 
 # server file
-data
+data/
 
 # editor
 *.swp
