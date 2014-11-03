@@ -10,3 +10,6 @@ data
 
 # ide
 .idea/
+
+# rbenv
+.ruby-version
