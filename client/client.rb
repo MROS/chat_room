@@ -1,12 +1,8 @@
 require 'socket'
 require 'json'
 require 'curses'
+require_relative 'setting'
 require_relative 'request'
-
-module SERVER
-  PORT = 2630
-  HOST = 'localhost'
-end
 
 class History < Curses::Window
   def init
