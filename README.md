@@ -1,4 +1,5 @@
-# 聊天室軟體計設
+請到[此處觀看markdown](https://github.com/MROS/chat_room)
+# 聊天室
 
 ---
 # 目錄結構
@@ -57,7 +58,7 @@ CREATE table Members (username varchar(128), password varchar(128), unique (user
 類似於dropbox連結
 
 # 流程圖
-![此处输入图片的描述][1]
+![流程圖](1)
 
 
 # 協定
@@ -114,4 +115,3 @@ XXXXXXXXXXXXXXXXXXXXX
 
 
   [1]: https://lh4.googleusercontent.com/-wYd5S2_3gS8/VEpmXyPXvWI/AAAAAAAAAEM/n-79r76IS_I/w951-h535-no/P_20141024_224622.jpg
-  [2]: https://lh4.googleusercontent.com/-zZUIPPfBRb4/VEperBH-juI/AAAAAAAAADU/O7zHC9ayHU0/w951-h535-no/P_20141024_221247.jpg
