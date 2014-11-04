@@ -13,6 +13,12 @@ password2 = $stdin.gets.chomp
 if password == password2
   socket = TCPSocket.new(SERVER::HOST, SERVER::PORT)
   socket.puts(JSON.generate({function: "register", data: {username: username, password: password}}))
+  ok = socket.gets.chomp
+  if ok == "OK"
+    puts "註冊成功！！"
+  else
+    puts "註冊失敗，請換帳號"
+  end
   socket.close
 else
   puts "兩次密碼不相同，請重新運行本程式"

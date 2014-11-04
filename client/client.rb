@@ -136,6 +136,10 @@ class Client
     req = get_login_request
     @socket = TCPSocket.new(@host, @port)
     @socket.puts req
+    res = @socket.gets.chomp
+    if res != "OK"
+      abort "登入失敗"
+    end
     @ui = UI.new(@socket)
   end
 
